@@ -2,9 +2,10 @@
 title: Systemd
 date: 2016-06-05 15:55:33
 categories: Linux
-tags:[Linux, Systemd]
+tags: [Linux, Systemd]
 
 ---
+
 Systemd 是 Linux 系统工具，用来启动守护进程，已成为大多数发行版的标准配置。
 <!-- more -->
 # 由来
