@@ -5,31 +5,25 @@ categories: Linux
 tags: [Linux, Systemd]
 
 ---
-
-Systemd 是 Linux 系统工具，用来启动守护进程，已成为大多数发行版的标准配置。
-<!-- more -->
-# 由来
-历史上，Linux 的启动一直采用`init`进程。
-下面的命令用来启动服务。
+Linux系统的初始化过程：POST加电自检–>BIOS(Boot Sequence)–>加载对应引导上的MBR(bootloader)–>主引导设置加载其BootLoader–>Kernel初始化。Kernel初始化后，就是启动init系统，初始化随系统启动的各种服务。这个init系统有以下几种：
 
 ```
-$ sudo /etc/init.d/apache2 start
-# 或者
-$ service apache2 start
+systemvinit
+upstart，就是常见的/etc/init.d下的脚本
+systemd，一代更比一代强，这就是我们接下来要介绍的。在CoreOS,ubuntu15.04及以上版本中有使用。
 ```
-这种方法有两个缺点。
-一是启动时间长。init进程是串行启动，只有前一个进程启动完，才会启动下一个进程。
-二是启动脚本复杂。init进程只是执行启动脚本，不管其他事情。脚本需要自己处理各种情况，这往往使得脚本变得很长。
+<!--more-->
 # Systemd概述
-Systemd 就是为了解决这些问题而诞生的。它的设计目标是，为系统的启动和管理提供一套完整的解决方案。
+Systemd 的设计目标是，为系统的启动和管理提供一套完整的解决方案。
 根据 Linux 惯例，字母d是守护进程（daemon）的缩写。 Systemd 这个名字的含义，就是它要守护整个系统。
 使用了 Systemd，就不需要再用init了。Systemd 取代了initd，成为系统的第一个进程（PID 等于 1），其他进程都是它的子进程。
+它的优点是启动更迅速，更便于管理进程。
 
 ```
 $ systemctl --version
 ```
 上面的命令查看 Systemd 的版本。
-Systemd 的优点是功能强大，使用方便，缺点是体系庞大，非常复杂。事实上，现在还有很多人反对使用 Systemd，理由就是它过于复杂，与操作系统的其他部分强耦合，违反"keep simple, keep stupid"的Unix 哲学。
+
 ![](http://www.ruanyifeng.com/blogimg/asset/2016/bg2016030703.png)
 （上图为 Systemd 架构图）
 # 系统管理
@@ -489,3 +483,6 @@ $ sudo journalctl --vacuum-size=1G
 # 指定日志文件保存多久
 $ sudo journalctl --vacuum-time=1years
 ```
+
+[原文链接1](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html)
+[原文链接2](http://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html)

@@ -9,7 +9,7 @@ tags: 工具
 在生产环境下的开发过程中，一个工程的代码通常是有多个程序员协同完成，这就涉及到代码在不通终端的同步问题，基于此需求，我们产生了代码版本工具，目前比较主流的两种为git和SVN
 <!-- more -->
 ## git 与 SVN
-关于git和SVN的区别，网上有很多，根据笔者使用的经验，感觉git还是要比SVN现金一些，首先git是一个分布式版本管理系统，SVN更像是一个储存代码的仓库，管理员可以给不同的代码提交者提供不同的权限，仅此而已。git于SVN相比明显的优势在于不依赖网络，对分支管理有更好的支持，命令行简介好用（SVN也有命令行工具，但很多公司还是采用图形化界面）
+关于git和SVN的区别，网上有很多，根据笔者使用的经验，感觉git还是要比SVN先进一些，首先git是一个分布式版本管理系统，SVN更像是一个储存代码的仓库，管理员可以给不同的代码提交者提供不同的权限，仅此而已。git于SVN相比明显的优势在于不依赖网络，对分支管理有更好的支持，命令行简介好用（SVN也有命令行工具，但很多公司还是采用图形化界面）
 
 ## git介绍
 git是Linux的创始人Linus于2005年花了大概两周时间用C语言编写的分布式版本控制系统。
@@ -159,7 +159,7 @@ doc/*.txt    # 忽略如 doc/notes.txt, 但是不忽略如 doc/server/arch.txt
 git config --global alias.<shortname> <command_name>
 ```
 
-的方式制定快捷命令
+的方式指定快捷命令，
 以下为一些常用的快捷命令设置
 
 ```
@@ -171,5 +171,6 @@ git config --global alias.unstage 'reset HEAD'
 git config --global alias.last 'log -1'
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 ```
+
 
 ok ,that's all

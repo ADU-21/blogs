@@ -80,6 +80,52 @@ ensile的底层实现使用python，在Linux上支持较好，windows支持较�
 
 
 # 如何使用
-# Ansible的不足之处
+## Ansible的不足之处
+ansible作为一种自动化管理工具实践，形成了一种标准 ，这种标准在实践的过程中难免会有一些不足，比如说既定的命令行和Ansible模块之间的使用存在着一定差距，需要使用的命令行不一定在Ansible中能够找到对应的模块。另外Ansible对于变量的管理也令人诟病，大量的Ansible-playbook如果不按照最佳实践管理变量，或者大量使用冗余变量，会导致文件层级增多，非常难以阅读。。所以在一开始编写Ansible的时候推荐参照最佳实践。但同时我觉得最佳实践文件分德有点太细了，比如说task和vars分开的方式并不能适应很多场景。。好吧但总的来说，Ansible仍是目前管理Linux平台的一个不错的工具。
 
-未完待续。。
+## work with ansible
+这是我写的一个Ansible文件用来create 一个instance 然后在instance上自动化部署我的博客：
+
+[https://github.com/ADU-21/create_hexo_in_ec2_with_ansible](https://github.com/ADU-21/create_hexo_in_ec2_with_ansible)
+
+下面我来教大家一起写一个自己的ansible-playbook
+首先创建一个host.ini文件:
+
+```
+[host]
+localhost
+```
+这个文件用于指定配置的机器
+接下来是ansible.cfg，用于指定ansible-pylbook的参数
+这里包含了inventory和登录到远程设备需要的private key以及remote user:
+
+```
+[defaults]
+inventory = host.ini
+private_key_file = ~/.ssh/devenv-key.pem
+remote_user = ec2-user
+```
+最后是site.yml，也就是我们的playbook，
+其工作原理大致是ssh到指定机器上然后执行ansible模块对应的python脚本从而进行社别的配置。
+
+```
+- hosts: local
+  connection: local
+  gather_facts: False
+  roles:
+    # - create_instance
+    - create_instance_with_cloudformation
+
+- hosts: test
+  roles:
+      - config_instance
+      - test_hexo
+```
+这和playbook执行的role包含以下含义：从本地连接到local这个组里面的设备，然后执行创建instance 和配置instance 最后测试hexo的工作。
+接下来在role中是更多的yams使用ansible的模块来达到配置设备的目的。。我就不一一解释了，关于yaml语法可参照文档：
+
+[http://docs.ansible.com/ansible/YAMLSyntax.html](http://docs.ansible.com/ansible/YAMLSyntax.html)
+
+关于ansible的模块可参照文档：
+
+[http://docs.ansible.com/ansible/index.html](http://docs.ansible.com/ansible/index.html)
