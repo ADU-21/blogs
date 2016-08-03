@@ -10,4 +10,4 @@ tags: AWS DevOps
 
 <!-- more -->
 # 应用场景
-CloudFormation从小到一个EC2大到一个企业级web服务都可以用一个cloudfomation自动生成
+CloudFormation从小到一个EC2大到一个企业级web服务都可以用一个cloudfomation自动生成,
