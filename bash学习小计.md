@@ -126,11 +126,12 @@ bash的变量只会被扫描替换一遍，所以当我们的变量里包含其�
 
 s=Start
 Start_ops=hello
-name=world
+name=$1
 echo "$s""_ops"
 eval echo \$"$s"_ops "$name"
 
 ```
+运行 ./test.sh world 
 打印出hello word
 
 **但是！！**我现在要说的是请不要使用这种方式，因为邪恶的eval会引起bash注入的问题，就提示到这里，剩下的自己感受。。
