@@ -134,5 +134,7 @@ eval echo \$"$s"_ops world
 打印出hello word
 # 推荐一个Linux命令查询的网站
 
+[http://man.linuxde.net/](http://man.linuxde.net/)
+
 另外： 后面还得写一个关于vim的快捷操作的文章。
 
