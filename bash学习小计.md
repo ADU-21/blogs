@@ -95,6 +95,27 @@ history可以查看当前用户的历史命令，每个用户的history藏在~/.
 # 关于文件查找
 find 是一个事实文件便利工具，比较强大,可以用` find / -name "*.sh"`的方式查找/中包含.sh结尾的文件，如果遇到一堆permission deny的问题可以用输出重定向的方式解决`find /-name "*.sh" 2>> /dev/null `（2为文件状态符，0表示标准输入，1表示标准输出，2表示错误输出，>>为重定向，表示将输出叠加导入到后面的文件中,/dev/null为Linux系统的垃圾桶）,这个命令比较常用，但是效率很低，占用内存也比较高，推荐使用locate命令，类似于window系统里的everything，将文件信息保存在/var/lib/mlocate/mlocatedb数据库里，使用`updatedb`更新数据库，`locate filename`的方式查找文件，更高效，速度也更快。
 
+# 关于bash_history
+放一个bash_histroy的命令：[http://rockhong.github.io/history-in-bash.html](http://rockhong.github.io/history-in-bash.html)
+bash使用的历史命令会先写入内存（在退出subshell之前在.bash_history中不可见，也不可传递到子进程），在退出shell的时候写入子进程。这里说几个对bash_history的需求以及解决方案。
+## 多个终端不覆盖history:
+如果同一用户在不同终端登录，bash_histroy只能保存最后一个用户登录的bash_histroy，解决这个问题：
+简单来说，你在.bashrc里面添加这句就够了：
+
+```
+shopt -s histappend
+```
+## history上限设大：
+
+```
+# 设置历史记录条数
+export HISTFILESIZE=40000000
+# 设置显示历史记录条数
+export HISTSIZE=10000
+```
+## history定期备份
+很多情况下我们希望保存更多的bash_history以方便以后查阅，但是如果把.bash_history设置得很大的话，bash在启动时会占用大量内存（100000条大概要10M），这是我们不想看到的，所以应该养成定期备份的习惯，推荐把bash_histroy按时间备份比如每天+data>>bash_histroy.back.
+
 # 另外记几个Linux下的常用工具
 
 ```
