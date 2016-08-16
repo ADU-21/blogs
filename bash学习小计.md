@@ -124,13 +124,13 @@ export HISTSIZE=10000
 ```
 sudo -iu <user> 
 ```
-它等价于`sudo -u root /bin/bash`
+它等价于`sudo -u root <user_shell>`
 是不是很神奇？
 我们来看一个更神奇的:
 visudo(当然需要root身份或者sudo权限)，编辑/etc/sudoers（或者/etc/sudoers.d/文件下的文件），添加如下代码：
 
 ```
-user1 ALL=(user2) NOPASSWD: /bin/bash
+user1 ALL=(user2) NOPASSWD: <user_shell>
 ```
 就可以让user1免密码sudo到user2，是不是很有趣。
 顺便说一下你可以使用这个配置来管理所有sudo权限。
