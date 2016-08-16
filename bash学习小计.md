@@ -179,5 +179,8 @@ eval echo \$"$s"_ops "$name"
 
 [http://man.linuxde.net/](http://man.linuxde.net/)
 
+# 再列一堆Linux下贼好用的工具
+[https://gist.github.com/ADU-21/170a6d0f8756935cead9361bdea0bc67](https://gist.github.com/ADU-21/170a6d0f8756935cead9361bdea0bc67)
+
 另外： 后面还得写一个关于vim的快捷操作的文章。
 
