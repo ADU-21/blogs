@@ -9,7 +9,7 @@ fi
 
 git add .
 git commit -m "$DATA$MESS"
-git push orgin master
+git push origin master
 
 cd ../.. 
 hexo g 2>>/dev/null 
