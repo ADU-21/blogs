@@ -116,6 +116,25 @@ export HISTSIZE=10000
 ## history定期备份
 很多情况下我们希望保存更多的bash_history以方便以后查阅，但是如果把.bash_history设置得很大的话，bash在启动时会占用大量内存（100000条大概要10M），这是我们不想看到的，所以应该养成定期备份的习惯，推荐把bash_histroy按时间备份比如每天+data>>bash_histroy.back.
 
+# 关于sudo
+这里我要说的是用户切换
+大家都知道su命令是用来切换用户的，su - 可以完全切换到用户（新开一个shell，加载~/.bash_profile及~/.bashrc），但是在有的情况下，sudo -iu 也可以切换用户。
+首先：`sudo -i` 是以root身份新开一个shell，`sudo -u <user> <command>`是以user身份执行command，现在我要说一条神奇的命令：
+
+```
+sudo -iu <user> 
+```
+它等价于`sudo -u root /bin/bash`
+是不是很神奇？
+我们来看一个更神奇的:
+visudo(当然需要root身份或者sudo权限)，编辑/etc/sudoers（或者/etc/sudoers.d/文件下的文件），添加如下代码：
+
+```
+user1 ALL=(user2) NOPASSWD: /bin/bash
+```
+就可以让user1免密码sudo到user2，是不是很有趣。
+顺便说一下你可以使用这个配置来管理所有sudo权限。
+
 # 另外记几个Linux下的常用工具
 
 ```
