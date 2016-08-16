@@ -9,8 +9,8 @@ fi
 
 git add .
 git commit -m "$DATA$MESS"
-git push
+git push orgin master
 
 cd ../.. 
-hexo g
-hexo d
+hexo g 2>>/dev/null 
+hexo d 2>>/dev/null 
