@@ -8,7 +8,7 @@ else
 fi
 
 git add .
-git commit -m "$DATA$MESS"
+git commit -m "$DATA---$MESS"
 git push origin master
 
 cd ../.. 
