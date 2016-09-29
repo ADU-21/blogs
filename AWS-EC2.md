@@ -52,3 +52,9 @@ AWS提供接口为HTTP或者HTTPs的请求提供响应。可以在 `Amazon EC2 A
 
 ## 付费方式
 可以按小时付费（大部分时候我们采用这种方式），也可以先预付一笔钱，然后保留一到三年，这样会比较便宜一些。还有竞价方式，这个不需要太了解。
+
+## Security Best Practice
+ - 使用IAM(AWS Identity and Access Management)控制AWS资源的访问权限
+ - 设置Security Group用于仅允许信任的设备接入开放的端口
+ - 经常review你的Security Group设置，确保你赋予了“最小可用权限”，为不同的网络需求创建不同的SG
+ - 禁止密码登录
