@@ -39,10 +39,10 @@ Amazon Elastic Compulte Cloud(EC2)提供了可伸缩的计算资源，使你可�
  - Amazon EBS
  - Instance Store
 
- ## 和EC2有关的服务
- **ELB（Elastic Load Balancing）** 在不同的instance之间自动分发进来的请求
- **CloudWatch** 实现监视器功能用于监控你的instance
- **CouldTrail** 监控所有通向EC2的call，包括AWS console commandline tools以及其他服务
+## 和EC2有关的服务
+  - **ELB（Elastic Load Balancing）** 在不同的instance之间自动分发进来的请求
+  - **CloudWatch** 实现监视器功能用于监控你的instance
+  - **CouldTrail** 监控所有通向EC2的call，包括AWS console commandline tools以及其他服务
  
 ## 如何操作EC2资源
 
