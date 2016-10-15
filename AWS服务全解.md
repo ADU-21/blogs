@@ -4,6 +4,8 @@ date: 2016-10-14 20:21:49
 tags: AWS
 ---
 
+<!-- more -->
+
 # 计算资源(Compute)
 
 ## EC2（Elastic Cloud Compute）
