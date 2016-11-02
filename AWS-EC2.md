@@ -8,7 +8,7 @@ tags: aws
 
 Amazon Elastic Compulte Cloud(EC2)提供了可伸缩的计算资源，使你可以快速开发/部署你的应用，有了它你可以快速起一个应用，配置安全，网络，以及存储。他可以更灵活，更快地适应你对需求。
 
-<!--more-->
+<!-- more -->
 ## EC2定义了以下规则
  - **Instance:** 虚拟计算环境
  - **AMI(Amazon Machine Images):** EC2环境的一个预配置
