@@ -4,13 +4,11 @@ date: 2016-10-14 20:21:49
 tags: AWS
 ---
 
-<!-- more -->
-
 # 计算资源(Compute)
 
 ## EC2（Elastic Cloud Compute）
 提供可扩展计算资源，可以在此基础上创建操作系统，分为可根据需求选择容量，大小，计算能力。
-
+<!-- more -->
 ## ECR (EC2 Container Registry)
 作为Container的一个支持，用于储存和管理Docker images,使开发者更容易储存，管理，不熟Docker Conatainer Images.
 
